@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Phasmophobia Overlay</title>
+  </head>
+  <body>
+    <div class="hero"></div>
+    <nav class="hero-content">
+      <!-- ******************* Header ******************* -->
+      <header>
+        <img
+          id="logo"
+          src="image/OnlyPolygon Logo.svg"
+          width="150"
+          alt="OnlyPolygon logo"
+        />
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="phasmo.html" id="selected">Phasmophobia</a>
+          <a href="demon.html">Demonologist</a>
+        </nav>
+      </header>
+    </nav>
+
+    <!-- ****************** Intro ****************** -->
+    <section class="hero-content" id="intro">
+      <div>
+        <h1>Phasmophobia Overlay</h1>
+        <div id="showcase" class="intro-showcase">
+          <div class="right" id="intro-info">
+            <p>
+              An OBS browser source for displaying evidence and tracking
+              possible ghosts.
+            </p>
+            <p>
+              Displays ghost options after two evidences have been selected.
+            </p>
+          </div>
+          <div class="left">
+            <img id="preview"
+              src="image/phasmo_preview.JPG"
+              alt="Phasmophoibia overlay preview"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ****************** Installation ****************** -->
+    <div class="hero-content" id="install-section">
+      <div>
+        <h2>Installation</h2>
+      </div>
+      <!-- *** Cloud or Local Install *** -->
+      <div id="descs">
+        <div id="cloud-desc">
+          <h4>Cloud Install</h4>
+          <p>
+            With this version the overlay will automatically update with no
+            extra effort on your end. Just set and forget!
+          </p>
+          <button id="cloud-button" onclick="CloudInstall()">
+            Use Cloud Install
+          </button>
+        </div>
+        <div id="local-desc">
+          <h4>Local Install</h4>
+          <p>
+            With this version you'll need to check back after each path to see
+            if there is an update.
+          </p>
+          <button id="local-button" onclick="LocalInstall()">
+            Use Local Install
+          </button>
+        </div>
+      </div>
+      <!-- *** Stacked or Inline Layout *** -->
+      <div class="hidden" id="layout-choice">
+        <div id="stack-option">
+          <img id="stack-img" src="image/phamso_stack.PNG" alt="Stacked layout example"/>
+          <button id="stacked-button" onclick="Layout(0)">Stacked Layout</button>
+        </div>
+        <div id="inline-option">
+          <img id="inline-img" src="image/phasmo_inline.PNG" alt="Inline layout example"/>
+          <button id="inline-button" onclick="Layout(1)">Inline Layout</button>
+        </div>
+      </div>
+      <!-- *** Cloud Installation Instructions *** -->
+      <div id="cloud-inst">
+        <div class="hidden" id="cloud-stacked">
+          <ol>
+            <li>
+              In OBS add a Browser Source and paste this in the URL:
+              <code>
+                https://onlypolygon.github.io/phasmophobia-overlay/overlay.html
+              </code>
+            </li>
+            <li>
+              Set Width to 1390, Height to 1250, and check to enable refresh on
+              activation
+            </li>
+            <li>Resize to fit your needs</li>
+          </ol>
+        </div>
+        <div class="hidden" id="cloud-inline">
+          <ol>
+            <li>
+              In OBS add a Browser Source and paste this in the URL:
+              <code>
+                https://onlypolygon.github.io/phasmophobia-overlay/overlay.html
+              </code>
+            </li>
+            <li>
+              Set Width to 2400, Height to 1000, and check to enable refresh on
+              activation
+            </li>
+            <li>Resize to fit your needs</li>
+          </ol>
+        </div>
+      </div>
+      <!-- *** Local Installation Instructions *** -->
+      <div id="local-inst">
+        <div class="hidden" id="local-stacked">
+          <ol>
+            <li>
+              Go to
+              <a
+                href="https://github.com/OnlyPolygon/phasmophobia-overlay/releases/tag/Latest"
+                >Releases</a
+              >
+              and download the Source Code (zip)
+            </li>
+            <li>Extract folder where ever you find most convenient</li>
+            <li>
+              In OBS add a Browser Source and choose local file and point it to
+              the DemonologistOverlay.html
+            </li>
+            <li>
+              Set Width to 1390, Height to 1250, and check to enable refresh on
+              activation
+            </li>
+            <li>Resize to fit your needs</li>
+          </ol>
+        </div>
+        <div class="hidden" id="local-inline">
+          <ol>
+            <li>
+              Go to
+              <a
+                href="https://github.com/OnlyPolygon/phasmophobia-overlay/releases/tag/Latest"
+                >Releases</a
+              >
+              and download the Source Code (zip)
+            </li>
+            <li>Extract folder where ever you find most convenient</li>
+            <li>
+              In OBS add a Browser Source and choose local file and point it to
+              the DemonologistOverlay.html
+            </li>
+            <li>
+              Set Width to 2400, Height to 1000, and check to enable refresh on
+              activation
+            </li>
+            <li>Resize to fit your needs</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- ****************** Usage ****************** -->
+    <div class="hero-content hidden" id="usage-section">
+      <h2>How to Use</h2>
+      <ul>
+        <li>
+          To interact with overlay, right click the browser source and choose
+          interact
+        </li>
+        <li>
+          In OBS Studio you can use the context bar when selecting the source
+        </li>
+        <li>To enter Evidence, simply click the relavent icon</li>
+        <li>
+          To reset the overlay, click the lower box where "Searching..." and the
+          ghost names appear
+        </li>
+      </ul>
+    </div>
+    <footer></footer>
+  </body>
+  <script src="code.js"></script>
+</html>
