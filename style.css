@@ -149,7 +149,7 @@ section h1 {
 /* ------- Install Selection ------- */
 #descs{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   column-gap: 15px;
   text-align: center;
 }
@@ -171,11 +171,11 @@ section h1 {
   cursor: pointer;
 }
 #cloud-desc{
-  flex-basis: 50%;
+  flex-basis: 40%;
   transition-duration: 200ms;
 }
 #local-desc{
-  flex-basis: 50%;
+  flex-basis: 40%;
   transition-duration: 200ms;
 }
 /* ------- Layout Selection ------- */
