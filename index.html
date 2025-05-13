@@ -1,79 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-9CMT7706T8"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-9CMT7706T8");
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="google-site-verification"
-      content="hpJgNovVbEPyT-xeYjNprx8Y_ptaqMgexqUVipJzBW0"
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <title>OnlyPolygon - Stream Tech Consultant</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@1.5.10/css/pico.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
     <link rel="stylesheet" href="style.css" />
-    <title>OnlyPolygon's Github</title>
   </head>
   <body>
-    <div class="hero"></div>
-    <nav class="hero-content">
-      <!-- ******************* Header ******************* -->
-      <header>
-        <img
-          id="logo"
-          src="image/OnlyPolygon Logo.svg"
-          width="150"
-          alt="OnlyPolygon logo"
-        />
-        <nav class="main-nav">
-          <a href="index.html" id="selected">Home</a>
-          <a href="phasmo.html">Phasmophobia</a>
-          <a href="demon.html">Demonologist</a>
-        </nav>
-      </header>
+    <nav class="container-fluid">
+      <ul>
+        <li class="logo">
+          <a href="#landing" aria-label="OnlyPolygon Home">
+            <img
+              src="img/OnlyPolygon_Logo_DarkMode.svg"
+              alt="OnlyPolygon Logo"
+              style="height: 40px"
+            />
+          </a>
+        </li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul id="nav-links">
+        <li><a href="#landing" onclick="closeMenu()">Home</a></li>
+        <li><a href="#services" onclick="closeMenu()">Services</a></li>
+        <li><a href="#assets" onclick="closeMenu()">Free Assets</a></li>
+      </ul>
     </nav>
 
-    <!-- ****************** Overlay Showcase ****************** -->
-    <section class="hero-content">
-      <h1>Evidence Tracking Overlays</h1>
-      <div id="showcase">
-        <a href="phasmo.html"
-          ><img
-            id="phasmo-link"
-            src="image/phasmo_grid.png"
-            alt="Phasmophobia overlay link"
-        /></a>
-        <p class="overlay hidden">Phasmophobia Overlay</p>
-        <a href="demon.html"
-          ><img
-            id="demon-link"
-            src="image/demon_grid.jpg"
-            alt="Demonologist overlay link"
-        /></a>
-        <p class="overlay hidden">Demonologist Overlay</p>
+    <main class="container">
+      <!-- Landing Section -->
+      <section class="landing" id="landing">
+        <img src="img/me.jpg" alt="OnlyPolygon image" />
+        <div class="landing-text">
+          <hgroup>
+            <h1>Stream Tech Consultant</h1>
+            <h2>Turn your stream dreams into more than memes</h2>
+          </hgroup>
+          <p>
+            I’m <strong>OnlyPolygon</strong> — a tech enthusiast helping to turn
+            your content ideas into a reality.
+          </p>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services">
+        <h2 class="text-center sub-header">Services</h2>
+        <div class="card-grid">
+          <article>
+            <img
+              src="img/audio.png"
+              alt="Audio Consultation"
+              class="card-img"
+            />
+            <hgroup>
+              <h4>Audio Consultation</h4>
+              <h5>
+                Personalized audio FX chain to enhance your sound
+                <br />
+                <strong>— <span class="price">$20</span> —</strong>
+              </h5>
+            </hgroup>
+            <button data-target="modal-audio" data-toggle="modal">
+              Learn More
+            </button>
+          </article>
+          <article>
+            <img
+              src="img/Custom_Action.png"
+              alt="Streamerbot Action"
+              class="card-img"
+            />
+            <hgroup>
+              <h4>Streamer.bot C# Actions</h4>
+              <h5>
+                Powerful custom C# actions for Streamer.bot to elevate your
+                stream
+                <br />
+                <strong>— <span class="price">$5+</span> —</strong>
+              </h5>
+            </hgroup>
+            <button data-target="modal-streamer" data-toggle="modal">
+              Learn More
+            </button>
+          </article>
+          <article>
+            <h3>More coming soon</h3>
+          </article>
+        </div>
+      </section>
+
+      <!-- Free Assets Section -->
+      <section id="assets">
+        <h2 class="text-center sub-header">Free Assets</h2>
+        <div class="card-grid">
+          <article>
+            <img
+              src="img/phasmo_grid.png"
+              alt="Phasmophobia Overlay"
+              class="asset-thumb"
+            />
+            <button data-target="modal-asset" data-toggle="modal">
+              View Asset
+            </button>
+          </article>
+          <article>
+            <img
+              src="img/demon_grid.jpg"
+              alt="Demonoligist Overlay"
+              class="asset-thumb"
+            />
+            <button data-target="modal-asset2" data-toggle="modal">
+              View Asset
+            </button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modals -->
+    <dialog id="modal-audio">
+      <article style="margin-top: 0px; margin-bottom: 0px">
+        <header>
+          <h3>Audio Consultation — <span class="price">$20</span></h3>
+        </header>
+        <div
+          class="modal-content"
+          style="display: flex; gap: 1rem; flex-wrap: wrap"
+        >
+          <!-- Left: YouTube Video -->
+          <div
+            style="
+              flex: 1;
+              min-width: 300px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: #111;
+              border-radius: 0.5rem;
+              color: #888;
+              height: 535px;
+            "
+          >
+            <iframe
+              width="100%"
+              height="535px"
+              src="https://www.youtube.com/embed/PpRq_mV9Ajs"
+              title="Audio Consultation Example"
+              frameborder="0"
+              allowfullscreen
+              style="border-radius: 0.5rem"
+            ></iframe>
+          </div>
+          <!-- Right: Instructions -->
+          <div
+            style="
+              flex: 2;
+              padding-left: 1rem;
+              overflow-y: auto;
+              max-height: 65vh;
+              min-width: 300px;
+            "
+          >
+            <h4>Description</h4>
+            <p>
+              I will create a custom audio FX chain for your microphone to
+              enhance your sound. This includes EQ, compression, and noise
+              reduction settings tailored to your voice and content style.
+            </p>
+            <h4>Instructions</h4>
+            <p><strong>Content Overview</strong></p>
+            <ul>
+              <li>Provide a brief rundown of your content.</li>
+              <li>Link to examples or references of your work.</li>
+              <li>
+                Mention any specific concerns or areas you’d like addressed.
+              </li>
+              <li>
+                List your microphone and any other audio equipment it runs
+                through (e.g., audio interface/mixer for XLR mics).
+              </li>
+            </ul>
+
+            <p><strong>Audio Recording Instructions</strong></p>
+            <ul>
+              <li>
+                Record a 60 second clip of yourself speaking naturally, as if
+                you were streaming.
+              </li>
+              <li>No filters should be applied to your voice.</li>
+              <li>If your content involves volume fluctuations, include:</li>
+              <ul>
+                <li>
+                  A section where you get loud (e.g., startled or shouting).
+                </li>
+                <li>A section where you speak softly or at a distance.</li>
+                <li>5 seconds of silence for background noise analysis.</li>
+              </ul>
+            </ul>
+
+            <p><strong>File Format & Recording Software</strong></p>
+            <ul>
+              <li>
+                If using Audacity (or similar), save your file as a
+                <code>.wav</code>.
+              </li>
+              <li>If using OBS, ensure:</li>
+              <ul>
+                <li>No filters are applied to your mic.</li>
+                <li>All other audio sources are turned off.</li>
+                <li>Save as either <code>.mkv</code> or <code>.mp4</code>.</li>
+              </ul>
+            </ul>
+            <!-- Request Button -->
+            <div style="margin-top: 2rem">
+              <a
+                href="https://ko-fi.com/c/f83c7feec4"
+                target="_blank"
+                class="contrast"
+                role="button"
+                style="width: 100%"
+                ><strong>Request this service</strong></a
+              >
+            </div>
+          </div>
+        </div>
+        <footer style="margin-top: 20px">
+          <button data-close-modal style="margin-bottom: 0px">Close</button>
+        </footer>
+      </article>
+    </dialog>
+
+    <dialog id="modal-streamer">
+      <article style="margin-top: 0px; margin-bottom: 0px">
+        <header>
+          <h3>Streamer.bot C# Actions — <span class="price">from $5</span></h3>
+        </header>
+        <div
+          class="modal-content"
+          style="display: flex; gap: 1rem; flex-wrap: wrap"
+        >
+          <!-- Left: Placeholder or future media (optional) -->
+          <div
+            style="
+              flex: 1;
+              min-width: 300px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-image: url('img/Streamerbot_Preview.png');
+              background-size: cover;
+              border-radius: 0.5rem;
+              color: #888;
+              height: 535px;
+            "
+          >
+            <p style="text-align: center">Media preview coming soon</p>
+          </div>
+
+          <!-- Right: Info -->
+          <div
+            style="
+              flex: 2;
+              padding-left: 1rem;
+              overflow-y: auto;
+              max-height: 65vh;
+              min-width: 300px;
+            "
+          >
+            <h4>Description:</h4>
+            <p>
+              Want powerful custom Streamer.bot actions without writing C#
+              yourself? I’ll build exactly what you need—whether it’s a simple
+              trigger, a chat effect, or a flexible system that interacts with
+              your browser source.
+            </p>
+
+            <h4>What You Get:</h4>
+            <ul>
+              <li>A fully custom C# action for Streamer.bot</li>
+              <li>Clean, readable code with comments</li>
+              <li>Basic instructions for setup</li>
+              <li>Minimum one round of revisions to fine-tune it</li>
+              <li>
+                More complex projects will get more feedback/revision
+                opportunities
+              </li>
+            </ul>
+
+            <p><strong>Pricing</strong></p>
+            <ul>
+              <li>
+                Base Rate: Starts at <span class="price">$5</span> for a simple
+                action
+              </li>
+              <li>
+                Add-ons available:
+                <ul>
+                  <li>
+                    <span class="price">$10</span> - WebSocket interaction
+                  </li>
+                  <li>
+                    <span class="price">$10</span> - Browser Source Control
+                    (e.g. goal tracking)
+                  </li>
+
+                  <li><span class="price">$20</span> - API integrations</li>
+                  <li><span class="price">$15</span> - Rush delivery</li>
+                </ul>
+              </li>
+            </ul>
+            <p>
+              Final price will vary based on the
+              complexity of your request. Let’s talk through your idea and I’ll
+              give you a fair, custom quote.
+            </p>
+            <br />
+
+            <p><strong>Ideal for:</strong></p>
+            <ul>
+              <li>Twitch streamers wanting unique chat commands</li>
+              <li>VTubers with interactive overlays</li>
+              <li>Anyone using Streamer.bot for fun automation</li>
+            </ul>
+            <p>
+              Let me handle the code so you can focus on creating an awesome
+              stream experience.
+            </p>
+
+            <!-- CTA Button -->
+            <div style="margin-top: 2rem">
+              <a
+                href="https://ko-fi.com/c/93a3d3e755"
+                target="_blank"
+                class="contrast"
+                role="button"
+                style="width: 100%"
+              >
+                <strong>Request this service</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+        <footer style="margin-top: 20px">
+          <button data-close-modal style="margin-bottom: 0px">Close</button>
+        </footer>
+      </article>
+    </dialog>
+
+    <dialog id="modal-asset">
+      <article style="margin-top: 0px; margin-bottom: 0px">
+        <header><h3>Phasmophobia Overlay</h3></header>
+        <div class="modal-top">
+          <img
+            src="img/phasmo_preview.JPG"
+            alt="Phasmophobia Overlay Preview"
+            style="max-width: 55%; border-radius: 1rem"
+          />
+          <p>
+            An OBS browser source for displaying evidence and tracking possible
+            ghosts. Displays ghost options after two evidences have been
+            selected.
+          </p>
+        </div>
+        <div class="modal-content">
+          <div style="flex: 1">
+            <div class="install-options" id="install-options"></div>
+            <div class="install-step" id="layout-options"></div>
+            <div class="install-step" id="final-instructions">
+              <h4>Installation Instructions</h4>
+              <p>Instructions based on selected layout will go here.</p>
+              <h4>How to Use</h4>
+              <p>Usage instructions will go here.</p>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <button data-close-modal style="margin-bottom: 0px">Close</button>
+        </footer>
+      </article>
+    </dialog>
+
+    <dialog id="modal-asset2">
+      <article style="margin-top: 0px; margin-bottom: 0px">
+        <header><h3>Demonoligist Overlay</h3></header>
+        <div class="modal-top">
+          <img
+            src="img/demon_preview.JPG"
+            alt="Demonologist Overlay Preview"
+            style="max-width: 55%; border-radius: 1rem"
+          />
+          <p>
+            An OBS browser source for displaying evidence and tracking possible
+            ghosts. Displays ghost options after two evidences have been
+            selected.
+          </p>
+        </div>
+        <div class="modal-content">
+          <div style="flex: 1">
+            <div class="install-options" id="install-options-2"></div>
+            <div class="install-step" id="layout-options-2"></div>
+            <div class="install-step" id="final-instructions-2">
+              <h4>Installation Instructions</h4>
+              <p>
+                Instructions based on selected layout will go here for Asset 2.
+              </p>
+              <h4>How to Use</h4>
+              <p>Usage instructions for Asset 2 will go here.</p>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <button data-close-modal style="margin-bottom: 0px">Close</button>
+        </footer>
+      </article>
+    </dialog>
+    <footer class="container" style="text-align: center">
+      <small>© 2025 OnlyPolygon</small>
+      <div
+        style="
+          font-size: 1.5rem;
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          align-items: center;
+        "
+      >
+        <!-- Ko-fi -->
+        <a
+          href="https://ko-fi.com/onlypolygon"
+          target="_blank"
+          aria-label="Ko-fi"
+        >
+          <img
+            src="img/Kofi_Logo.svg"
+            alt="OnlyPolygon Logo"
+            style="height: 24px"
+          />
+        </a>
+
+        <!-- Bluesky -->
+        <a
+          href="https://bsky.app/profile/onlypolygon.com"
+          target="_blank"
+          aria-label="Bluesky"
+        >
+          <img
+            src="img/Bluesky_Logo.svg"
+            alt="OnlyPolygon Logo"
+            style="height: 24px"
+          />
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:onlypolygon@gmail.com" aria-label="Email">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+              stroke="#2aabe2"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M22 6L12 13L2 6"
+              stroke="#2aabe2"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
       </div>
-      <a
-        href="https://ko-fi.com/V7V0EXUY6"
-        target="_blank"
-        style="display: flex; align-items: center; justify-content: center"
-        ><img
-          height="36"
-          style="border: 0px; height: 36px"
-          src="https://storage.ko-fi.com/cdn/kofi5.png?v=6"
-          border="0"
-          alt="Buy Me a Coffee at ko-fi.com"
-      /></a>
-    </section>
+    </footer>
+    <script src="scripts.js"></script>
   </body>
 </html>
